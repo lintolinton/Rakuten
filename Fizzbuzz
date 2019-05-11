@@ -1,22 +1,32 @@
 /******************************************************************************
 
-                            Online C# Compiler.
-                Code, Compile, Run and Debug C# program online.
-Write your code in this editor and press "Run" button to execute it.
+                       The FizzBuzz program as asked by track for
+                       Rakuten Junior Software Engineer from Kenya
+                       Aptitude test
+                       
+                       By Clinton Chogo
 
 ****
 ***************************************************************************/
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 class HelloWorld {
+
+    //The program gets the argument from std input inform of a string argument
+    
   static void Main(string[] args) {
       
-    //Get the length of the array
+    //below calculates program execution time
+      
+      Stopwatch stopwatch = Stopwatch.StartNew();
+      
+    //Get the length of the input array
     
     int length_arr = args.Length;
       
-    //variable to store output string
+    //variable to store output string to be displayed at the very end
     
     string output_str = "";
     
@@ -38,29 +48,41 @@ class HelloWorld {
     {
         string[] num_array = input_nums[i].Split(':');
         
-        //get value of divisor
+        //get value of divisor 
         
         int divisor = Convert.ToInt32(num_array[0]);
         
-        //Get the value of string
+        //Get the value of the string to be displayed if divisible
         
         string val_str = num_array[1];
+        
+        //if divisible concatenate val_str to output_str
         
         if(dividend % divisor == 0)
         {
             output_str += val_str;
         }
-        
     }
+    
+    //if no value is divisible then display dividend
+    
     if(output_str == "")
     {
         Console.WriteLine(dividend);
     }
+    
+    //else display output_str 
+    
     else
     {
         Console.WriteLine(output_str);
     }
     
+    //Calculate program execution time below and display it in ElapsedMilliseconds
+    
+    System.Threading.Thread.Sleep(500);
+    stopwatch.Stop();
+    //Console.WriteLine(stopwatch.ElapsedMilliseconds);
     
   }
 }
