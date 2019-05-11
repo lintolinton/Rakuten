@@ -1,0 +1,50 @@
+/******************************************************************************
+
+                            Online C# Compiler.
+                Code, Compile, Run and Debug C# program online.
+Write your code in this editor and press "Run" button to execute it.
+
+****
+***************************************************************************/
+
+using System;
+using System.Collections.Generic;
+class HelloWorld {
+  static void Main(string[] args) {
+      
+    //Get the length of the array
+    
+    int length_arr = args.Length;
+      
+    //variable to store output string
+    
+    string output_str = "";
+    
+    //The variable representing the last value of the array(aka the dividend)
+    
+    int dividend = Convert.ToInt32(args[length_arr - 1]);
+    
+    Console.WriteLine(dividend);
+    
+      
+    //Sort the array in ascending order
+    
+    string[] input_nums = new List<string>(args).GetRange(0, length_arr - 1).ToArray();
+      
+   // Array.Sort(input_nums);
+    
+    //Looping through the input string
+    
+    foreach(string str in input_nums)
+    {
+        string num_array = str.Split(":");
+        
+        
+        Console.WriteLine(str);
+        
+        
+    }
+    
+    
+  }
+}
