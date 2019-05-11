@@ -24,25 +24,41 @@ class HelloWorld {
     
     int dividend = Convert.ToInt32(args[length_arr - 1]);
     
-    Console.WriteLine(dividend);
     
-      
-    //Sort the array in ascending order
-    
+    //Input String minus the diviend
     string[] input_nums = new List<string>(args).GetRange(0, length_arr - 1).ToArray();
-      
-   // Array.Sort(input_nums);
+    
+   
+    //Sort the array in ascending order 
+    Array.Sort(input_nums);
     
     //Looping through the input string
     
-    foreach(string str in input_nums)
+    for(int i = 0; i < length_arr - 1;  i ++)
     {
-        string num_array = str.Split(":");
+        string[] num_array = input_nums[i].Split(':');
         
+        //get value of divisor
         
-        Console.WriteLine(str);
+        int divisor = Convert.ToInt32(num_array[0]);
         
+        //Get the value of string
         
+        string val_str = num_array[1];
+        
+        if(dividend % divisor == 0)
+        {
+            output_str += val_str;
+        }
+        
+    }
+    if(output_str == "")
+    {
+        Console.WriteLine(dividend);
+    }
+    else
+    {
+        Console.WriteLine(output_str);
     }
     
     
