@@ -1,0 +1,63 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+ 
+namespace CSharp_Shell
+{
+ 
+    public static class Program
+    {
+        public static void Main(string[] args)
+   
+        {
+          foreach(string file in args)
+          {
+            //string[] myarray = {"4 2", "2 2", "3 3", "4 2", "5 1", "6 2", "7 4", "8 6", "1 3"};
+            
+            string[] myarray = (File.ReadLines(file).ToArray());
+            int N = Convert.ToInt32(myarray[0]);
+            int length_arr = myarray.Length;
+            string[] input_nums = new List<string>(myarray).GetRange(1, length_arr - 1).ToArray();
+           
+            string[,] board = {{".",".",".",".",".",".",".","."},
+                              {".",".",".",".",".",".",".","."},
+                              {".",".",".",".",".",".",".","."},
+                              {".",".",".",".",".",".",".","."},
+                              {".",".",".",".",".",".",".","."},
+                              {".",".",".",".",".",".",".","."},
+                              {".",".",".",".",".",".",".","."},
+                              {".",".",".",".",".",".",".","."}
+                              };
+                           
+ 
+    for (int i = 0; i < 8; i++)
+ 
+    {
+       
+ 
+        for (int j = 0; j < 8; j++)
+        {
+            for(int y = 0; y <  N; y++)
+            {
+              
+                string[] mypair = input_nums[y].Split(' ');
+                int r = Convert.ToInt32(mypair[0]);
+                int c = Convert.ToInt32(mypair[1]);
+                //
+                board[r,c] = "Q";
+               
+            }
+           
+           Console.Write(board[i,j] );
+        }
+       
+        Console.WriteLine("\n");
+ 
+    }
+ 
+ 
+        }    
+        }
+    }
+}
